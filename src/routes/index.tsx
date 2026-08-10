@@ -10,19 +10,22 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const PHONE = "+40712345678";
-const PHONE_DISPLAY = "0712 345 678";
-const WHATSAPP = "https://wa.me/40712345678?text=Bun%C4%83%2C%20am%20nevoie%20de%20un%20instalator%20%C3%AEn%20Bucure%C8%99ti.";
+const BUSINESS_NAME = "Prompt Instal";
+const PHONE = "+40733357835";
+const PHONE_DISPLAY = "+40 733 357 835";
+const ADDRESS = "Strada Enache Spirache 22, 052572 București";
+const WHATSAPP = "https://wa.me/40733357835?text=Bun%C4%83%2C%20am%20nevoie%20de%20un%20instalator%20%C3%AEn%20Bucure%C8%99ti.";
 
 const services = [
-  { icon: Wrench, title: "Reparații instalații sanitare", desc: "Diagnoză rapidă și reparații durabile pentru orice problemă." },
-  { icon: Droplets, title: "Desfundare țevi", desc: "Echipament profesional pentru desfundări fără daune." },
-  { icon: ShowerHead, title: "Montaj baterii și chiuvete", desc: "Instalare curată, etanșă, cu garanție." },
-  { icon: Toilet, title: "Reparații WC", desc: "Rezervoare, scurgeri, înlocuiri complete." },
-  { icon: Sparkles, title: "Montaj cabine de duș", desc: "Asamblare și siliconare profesională." },
-  { icon: Flame, title: "Centrale termice", desc: "Montaj, service și revizii pentru toate mărcile." },
-  { icon: Search, title: "Detectare scurgeri", desc: "Localizare exactă fără spargeri inutile." },
-  { icon: Zap, title: "Intervenții urgente", desc: "Echipă disponibilă 24/7 în tot Bucureștiul." },
+  { icon: Droplets, title: "Plumbing leak detection", desc: "Detectarea rapidă și precisă a scurgerilor de apă." },
+  { icon: Flame, title: "Water heater installation", desc: "Instalare profesională pentru boilere și încălzitoare de apă." },
+  { icon: Wrench, title: "Tap installation", desc: "Montaj sigur și etanș pentru orice tip de robinet." },
+  { icon: Toilet, title: "Toilet installation", desc: "Instalare completă și verificarea etanșeității." },
+  { icon: ShowerHead, title: "Shower installation", desc: "Montaj și etanșare pentru cabine și sisteme de duș." },
+  { icon: Zap, title: "Plumbing pipe repair", desc: "Reparații pentru țevi și instalații sanitare." },
+  { icon: Wrench, title: "Tap repair", desc: "Repararea robinetelor care curg sau funcționează defectuos." },
+  { icon: Toilet, title: "Toilet repair", desc: "Remedierea rapidă a problemelor de WC și rezervor." },
+  { icon: Search, title: "Intervenții urgente", desc: "Suntem disponibili 24 de ore pentru urgențe sanitare." },
 ];
 
 const whyUs = [
@@ -38,7 +41,7 @@ const whyUs = [
 const reviews = [
   { name: "Andrei Popescu", area: "Sector 3", text: "Au venit în 40 de minute pentru o țeavă spartă noaptea. Profesioniști, curați, preț corect. Recomand!" },
   { name: "Maria Ionescu", area: "Sector 1", text: "Mi-au montat bateria de la bucătărie impecabil. Comunicare excelentă pe WhatsApp și punctualitate." },
-  { name: "Cristian Dumitru", area: "Sector 6", text: "Aveam o scurgere pe care alți doi instalatori nu au găsit-o. Băieții de la FixRapid au rezolvat în 2 ore." },
+  { name: "Cristian Dumitru", area: "Sector 6", text: "Aveam o scurgere pe care alți doi instalatori nu au găsit-o. Echipa Prompt Instal a rezolvat în 2 ore." },
   { name: "Elena Vasilescu", area: "Sector 2", text: "Service la centrala termică, totul ok. Au explicat tot ce au făcut și au lăsat curat după ei." },
   { name: "Mihai Stoica", area: "Sector 4", text: "Desfundare scurgere baie — rapid și fără mizerie. Preț exact cât a fost spus la telefon." },
   { name: "Alexandra Radu", area: "Sector 5", text: "Cei mai serioși instalatori cu care am lucrat. Garanție clară pe lucrare. Îi păstrez în agendă!" },
@@ -80,7 +83,7 @@ function Header() {
             <Wrench className="w-5 h-5" />
           </span>
           <span className="text-lg leading-tight">
-            FixRapid<span className="block text-[10px] font-medium text-muted-foreground tracking-widest uppercase">București</span>
+            {BUSINESS_NAME}<span className="block text-[10px] font-medium text-muted-foreground tracking-widest uppercase">București</span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-muted-foreground">
@@ -101,7 +104,7 @@ function Header() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <img src={heroImg} alt="Instalator profesionist FixRapid București la lucru" width={1600} height={1066}
+      <img src={heroImg} alt="Instalator profesionist Prompt Instal București la lucru" width={1600} height={1066}
         className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="relative container mx-auto px-4 py-24 md:py-36 text-navy-foreground">
@@ -110,7 +113,7 @@ function Hero() {
             <span className="w-2 h-2 rounded-full bg-accent-cta animate-pulse" /> Disponibili acum în București
           </span>
           <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl font-extrabold text-balance leading-[1.05]">
-            Instalator Rapid în <span className="text-primary-glow">București</span>
+            {BUSINESS_NAME} — instalator rapid în <span className="text-primary-glow">București</span>
           </h1>
           <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl text-balance">
             Intervenții rapide pentru instalații sanitare, scurgeri, centrale și reparații urgente. Echipă profesionistă, garanție pe lucrare, preț corect.
@@ -124,7 +127,7 @@ function Hero() {
             </a>
           </div>
           <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/80">
-            <div className="flex items-center gap-2"><Check className="w-4 h-4 text-accent-cta" /> Disponibili 24/7</div>
+            <div className="flex items-center gap-2"><Check className="w-4 h-4 text-accent-cta" /> Deschiși 24 de ore</div>
             <div className="flex items-center gap-2"><Check className="w-4 h-4 text-accent-cta" /> Intervenție în 30–60 min</div>
             <div className="flex items-center gap-2"><Check className="w-4 h-4 text-accent-cta" /> Garanție pe lucrare</div>
           </div>
@@ -176,7 +179,7 @@ function Section({ id, eyebrow, title, subtitle, children }: { id?: string; eyeb
 
 function Services() {
   return (
-    <Section id="servicii" eyebrow="Servicii" title="Tot ce ai nevoie pentru instalațiile tale" subtitle="De la urgențe sanitare la montaj de centrale termice — echipa noastră acoperă orice lucrare în București.">
+    <Section id="servicii" eyebrow="Servicii" title="Soluții complete pentru instalații" subtitle="Prompt Instal oferă servicii de instalare, reparații și detectare a problemelor sanitare în București.">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {services.map((s) => (
           <div key={s.title} className="group p-6 rounded-2xl border border-border bg-card hover:border-primary hover:-translate-y-1 transition-all shadow-card">
@@ -195,7 +198,7 @@ function Services() {
 function WhyUs() {
   return (
     <div className="bg-secondary/60 border-y border-border">
-      <Section id="de-ce-noi" eyebrow="De ce FixRapid" title="Profesioniști pe care te poți baza" subtitle="Suntem o echipă locală cu mii de intervenții reușite în București.">
+      <Section id="de-ce-noi" eyebrow={`De ce ${BUSINESS_NAME}`} title="Profesioniști pe care te poți baza" subtitle="Suntem o echipă locală cu mii de intervenții reușite în București.">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {whyUs.map((w) => (
             <div key={w.title} className="p-6 rounded-2xl bg-card border border-border">
@@ -289,7 +292,7 @@ function ServiceAreas() {
 
 function Contact() {
   return (
-    <Section id="contact" eyebrow="Contact" title="Hai să rezolvăm problema acum" subtitle="Sună, scrie pe WhatsApp sau lasă-ne un mesaj — îți răspundem în câteva minute.">
+    <Section id="contact" eyebrow="Contact" title="Hai să rezolvăm problema acum" subtitle="Sună, scrie pe WhatsApp sau vino la adresa noastră. Prompt Instal este deschis 24 de ore.">
       <div className="grid lg:grid-cols-2 gap-8">
         <div className="space-y-4">
           <a href={`tel:${PHONE}`} className="flex items-center gap-4 p-5 rounded-2xl bg-gradient-primary text-primary-foreground shadow-elegant">
@@ -312,18 +315,18 @@ function Contact() {
             <div className="p-5 rounded-2xl border border-border bg-card">
               <Clock className="w-5 h-5 text-primary" />
               <div className="mt-2 font-semibold text-navy">Program</div>
-              <div className="text-sm text-muted-foreground mt-1">Luni – Duminică<br />24/7 pentru urgențe</div>
+              <div className="text-sm text-muted-foreground mt-1">Deschis zilnic<br />24 de ore</div>
             </div>
             <div className="p-5 rounded-2xl border border-border bg-card">
               <MapPin className="w-5 h-5 text-primary" />
-              <div className="mt-2 font-semibold text-navy">Zonă</div>
-              <div className="text-sm text-muted-foreground mt-1">București<br />Toate sectoarele (1–6)</div>
+              <div className="mt-2 font-semibold text-navy">Adresă</div>
+              <div className="text-sm text-muted-foreground mt-1">{ADDRESS}</div>
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden border border-border shadow-card">
             <iframe
               title="Hartă București"
-              src="https://www.google.com/maps?q=Bucharest&output=embed"
+              src="https://www.google.com/maps?q=Strada+Enache+Spirache+22%2C+052572+Bucuresti&output=embed"
               className="w-full h-64 border-0"
               loading="lazy"
             />
@@ -368,31 +371,31 @@ function Footer() {
         <div>
           <div className="flex items-center gap-2 font-extrabold text-lg">
             <span className="grid place-items-center w-9 h-9 rounded-lg bg-gradient-primary"><Wrench className="w-5 h-5" /></span>
-            FixRapid București
+            {BUSINESS_NAME} București
           </div>
-          <p className="mt-4 text-sm text-white/70 max-w-xs">Instalator profesionist în București. Intervenții rapide 24/7, garanție pe lucrare, prețuri corecte.</p>
+          <p className="mt-4 text-sm text-white/70 max-w-xs">Prompt Instal oferă servicii de instalații sanitare, disponibil 24 de ore în București.</p>
         </div>
         <div>
           <div className="font-semibold mb-3">Servicii populare</div>
           <ul className="space-y-2 text-sm text-white/70">
-            <li>Desfundare țevi</li>
-            <li>Reparații centrale termice</li>
-            <li>Montaj baterii & chiuvete</li>
-            <li>Detectare scurgeri</li>
+            <li>Plumbing leak detection</li>
+            <li>Water heater installation</li>
+            <li>Plumbing pipe repair</li>
+            <li>Toilet repair</li>
           </ul>
         </div>
         <div>
           <div className="font-semibold mb-3">Contact</div>
           <ul className="space-y-2 text-sm text-white/70">
             <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> {PHONE_DISPLAY}</li>
-            <li className="flex items-center gap-2"><MessageCircle className="w-4 h-4" /> WhatsApp 24/7</li>
-            <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /> București, toate sectoarele</li>
+            <li className="flex items-center gap-2"><MessageCircle className="w-4 h-4" /> WhatsApp 24 de ore</li>
+            <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /> {ADDRESS}</li>
             <li className="flex items-center gap-2"><Users className="w-4 h-4" /> Persoane fizice & juridice</li>
           </ul>
         </div>
       </div>
       <div className="container mx-auto px-4 mt-10 pt-6 border-t border-white/10 text-xs text-white/50 flex flex-col sm:flex-row justify-between gap-2">
-        <div>© {new Date().getFullYear()} FixRapid Instalații București. Toate drepturile rezervate.</div>
+        <div>© {new Date().getFullYear()} {BUSINESS_NAME} București. Toate drepturile rezervate.</div>
         <div>Făcut cu grijă pentru clienții noștri din București.</div>
       </div>
     </footer>
