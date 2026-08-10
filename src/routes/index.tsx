@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   Phone, MessageCircle, Clock, MapPin, Wrench, Droplets, ShowerHead, Toilet,
   Flame, Search, Zap, ShieldCheck, BadgeCheck, ThumbsUp, Sparkles, Users,
-  Mail, ArrowRight, Check,
+  Mail, ArrowRight, Check, Menu, X,
 } from "lucide-react";
 import heroImg from "@/assets/hero-plumber.jpg";
 
@@ -362,14 +363,50 @@ function Footer() {
 }
 
 function StickyCTAs() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuItems = [
+    { href: "#servicii", label: "Servicii" },
+    { href: "#de-ce-noi", label: "De ce noi" },
+    { href: "#preturi", label: "Prețuri" },
+    { href: "#zone", label: "Zone" },
+    { href: "#contact", label: "Contact" },
+  ];
+
   return (
-    <div className="fixed bottom-4 inset-x-4 z-50 md:hidden flex gap-3">
-      <a href={`tel:${PHONE}`} className="flex-1 inline-flex items-center justify-center gap-2 bg-navy text-navy-foreground py-3.5 rounded-xl font-semibold shadow-elegant animate-pulse-ring">
-        <Phone className="w-5 h-5" /> Sună
-      </a>
-      <a href={WHATSAPP} target="_blank" rel="noopener" className="flex-1 inline-flex items-center justify-center gap-2 bg-accent-cta text-accent-cta-foreground py-3.5 rounded-xl font-semibold shadow-elegant">
-        <MessageCircle className="w-5 h-5" /> WhatsApp
-      </a>
+    <div className="fixed bottom-4 inset-x-4 z-50 md:hidden">
+      {isMenuOpen && (
+        <nav aria-label="Navigare rapidă" className="absolute bottom-16 right-0 w-48 rounded-2xl border border-border bg-card p-2 shadow-elegant">
+          {menuItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="block rounded-xl px-4 py-3 text-sm font-semibold text-navy hover:bg-secondary transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      )}
+      <div className="flex items-center justify-end gap-3">
+        <button
+          type="button"
+          aria-label={isMenuOpen ? "Închide meniul" : "Deschide meniul de navigare"}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className="grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-elegant"
+        >
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+      <div className="mt-3 flex gap-3">
+        <a href={`tel:${PHONE}`} className="flex-1 inline-flex items-center justify-center gap-2 bg-navy text-navy-foreground py-3.5 rounded-xl font-semibold shadow-elegant animate-pulse-ring">
+          <Phone className="w-5 h-5" /> Sună
+        </a>
+        <a href={WHATSAPP} target="_blank" rel="noopener" className="flex-1 inline-flex items-center justify-center gap-2 bg-accent-cta text-accent-cta-foreground py-3.5 rounded-xl font-semibold shadow-elegant">
+          <MessageCircle className="w-5 h-5" /> WhatsApp
+        </a>
+      </div>
     </div>
   );
 }
