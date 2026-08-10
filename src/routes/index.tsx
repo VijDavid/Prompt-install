@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   Phone, MessageCircle, Clock, MapPin, Wrench, Droplets, ShowerHead, Toilet,
   Flame, Search, Zap, ShieldCheck, BadgeCheck, ThumbsUp, Sparkles, Users,
-  Star, Mail, ArrowRight, Check,
+  Mail, ArrowRight, Check,
 } from "lucide-react";
 import heroImg from "@/assets/hero-plumber.jpg";
 
@@ -37,16 +37,6 @@ const whyUs = [
   { icon: Clock, title: "Program flexibil", desc: "Lucrăm inclusiv în weekend și sărbători." },
 ];
 
-
-const reviews = [
-  { name: "Andrei Popescu", area: "Sector 3", text: "Au venit în 40 de minute pentru o țeavă spartă noaptea. Profesioniști, curați, preț corect. Recomand!" },
-  { name: "Maria Ionescu", area: "Sector 1", text: "Mi-au montat bateria de la bucătărie impecabil. Comunicare excelentă pe WhatsApp și punctualitate." },
-  { name: "Cristian Dumitru", area: "Sector 6", text: "Aveam o scurgere pe care alți doi instalatori nu au găsit-o. Echipa Prompt Instal a rezolvat în 2 ore." },
-  { name: "Elena Vasilescu", area: "Sector 2", text: "Service la centrala termică, totul ok. Au explicat tot ce au făcut și au lăsat curat după ei." },
-  { name: "Mihai Stoica", area: "Sector 4", text: "Desfundare scurgere baie — rapid și fără mizerie. Preț exact cât a fost spus la telefon." },
-  { name: "Alexandra Radu", area: "Sector 5", text: "Cei mai serioși instalatori cu care am lucrat. Garanție clară pe lucrare. Îi păstrez în agendă!" },
-];
-
 const pricing = [
   { title: "Intervenție standard", price: "150 lei", desc: "Deplasare + diagnoză în București", items: ["Evaluare la fața locului", "Deviz transparent", "Fără costuri ascunse"] },
   { title: "Desfundare scurgeri", price: "de la 200 lei", desc: "Echipament profesional", items: ["Spirală electrică", "Garanție 30 de zile", "Curățare după lucrare"] , featured: true },
@@ -64,7 +54,6 @@ function Index() {
       <EmergencyBanner />
       <Services />
       <WhyUs />
-      <Reviews />
       <Pricing />
       <ServiceAreas />
       <Contact />
@@ -218,36 +207,6 @@ function WhyUs() {
     </div>
   );
 }
-
-
-function Reviews() {
-  return (
-    <div className="bg-navy text-navy-foreground">
-      <Section id="recenzii" eyebrow="Recenzii clienți" title="Ce spun clienții noștri din București">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 -mt-4">
-          {reviews.map((r) => (
-            <div key={r.name} className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
-              <div className="flex gap-0.5 mb-3 text-accent-cta">
-                {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-              </div>
-              <p className="text-white/90 text-sm leading-relaxed">"{r.text}"</p>
-              <div className="mt-4 pt-4 border-t border-white/10 flex items-center gap-3">
-                <div className="grid place-items-center w-10 h-10 rounded-full bg-gradient-primary text-primary-foreground font-semibold text-sm">
-                  {r.name.split(" ").map(n => n[0]).join("")}
-                </div>
-                <div>
-                  <div className="font-semibold text-sm">{r.name}</div>
-                  <div className="text-xs text-white/60">{r.area}, București</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-    </div>
-  );
-}
-
 function Pricing() {
   return (
     <Section id="preturi" eyebrow="Prețuri transparente" title="Tarife clare, fără surprize" subtitle="Prețuri orientative pentru cele mai cerute servicii. Devizul final ți-l confirmăm înainte de a începe lucrarea.">
