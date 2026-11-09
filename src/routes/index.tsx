@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Phone, MessageCircle, Clock, MapPin, Wrench, Droplets, ShowerHead, Toilet,
-  Flame, Search, Zap, ShieldCheck, BadgeCheck, ThumbsUp, Sparkles, Users,
+  Flame, Search, Zap, ShieldCheck, BadgeCheck, Sparkles, Users,
   Mail, ArrowRight, Check, Menu, X,
 } from "lucide-react";
 import heroImg from "@/assets/hero-plumber.jpg";
@@ -32,7 +32,6 @@ const services = [
 const whyUs = [
   { icon: BadgeCheck, title: "Peste 10 ani experiență", desc: "Mii de intervenții reușite în București." },
   { icon: Zap, title: "Intervenție rapidă", desc: "Ajungem în 30–60 de minute în majoritatea sectoarelor." },
-  { icon: ThumbsUp, title: "Prețuri corecte", desc: "Deviz clar înainte de a începe lucrarea." },
   { icon: ShieldCheck, title: "Garanție pentru lucrări", desc: "Stăm în spatele fiecărei intervenții." },
   { icon: Wrench, title: "Echipamente profesionale", desc: "Scule moderne pentru rezultate impecabile." },
   { icon: Clock, title: "Program flexibil", desc: "Lucrăm inclusiv în weekend și sărbători." },
@@ -97,7 +96,7 @@ function Hero() {
             {BUSINESS_NAME} — instalator rapid în <span className="text-primary-glow">București</span>
           </h1>
           <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl text-balance">
-            Intervenții rapide pentru instalații sanitare, scurgeri, centrale și reparații urgente. Echipă profesionistă, garanție pe lucrare, preț corect.
+            Intervenții rapide pentru instalații sanitare, scurgeri, centrale și reparații urgente. Echipă profesionistă, garanție pe lucrare și soluții durabile.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a href={`tel:${PHONE}`} className="inline-flex items-center justify-center gap-2 bg-accent-cta text-accent-cta-foreground px-6 py-4 rounded-xl font-semibold text-base shadow-elegant hover:scale-[1.02] transition-transform">
