@@ -38,13 +38,6 @@ const whyUs = [
   { icon: Clock, title: "Program flexibil", desc: "Lucrăm inclusiv în weekend și sărbători." },
 ];
 
-const pricing = [
-  { title: "Intervenție standard", price: "150 lei", desc: "Deplasare + diagnoză în București", items: ["Evaluare la fața locului", "Deviz transparent", "Fără costuri ascunse"] },
-  { title: "Desfundare scurgeri", price: "de la 200 lei", desc: "Echipament profesional", items: ["Spirală electrică", "Garanție 30 de zile", "Curățare după lucrare"] , featured: true },
-  { title: "Montaj baterie / chiuvetă", price: "de la 180 lei", desc: "Materiale incluse parțial", items: ["Asamblare completă", "Test etanșeitate", "Garanție 12 luni"] },
-  { title: "Service centrală termică", price: "de la 250 lei", desc: "Pentru toate mărcile", items: ["Curățare arzător", "Verificare presiune", "Raport detaliat"] },
-];
-
 const sectors = ["Sector 1", "Sector 2", "Sector 3", "Sector 4", "Sector 5", "Sector 6"];
 
 function Index() {
@@ -55,7 +48,6 @@ function Index() {
       <EmergencyBanner />
       <Services />
       <WhyUs />
-      <Pricing />
       <ServiceAreas />
       <Contact />
       <Footer />
@@ -79,7 +71,6 @@ function Header() {
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-muted-foreground">
           <a href="#servicii" className="hover:text-navy transition-colors">Servicii</a>
           <a href="#de-ce-noi" className="hover:text-navy transition-colors">De ce noi</a>
-          <a href="#preturi" className="hover:text-navy transition-colors">Prețuri</a>
           <a href="#zone" className="hover:text-navy transition-colors">Zone</a>
           <a href="#contact" className="hover:text-navy transition-colors">Contact</a>
         </nav>
@@ -208,30 +199,6 @@ function WhyUs() {
     </div>
   );
 }
-function Pricing() {
-  return (
-    <Section id="preturi" eyebrow="Prețuri transparente" title="Tarife clare, fără surprize" subtitle="Prețuri orientative pentru cele mai cerute servicii. Devizul final ți-l confirmăm înainte de a începe lucrarea.">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {pricing.map((p) => (
-          <div key={p.title} className={`p-6 rounded-2xl border transition-all ${p.featured ? "bg-gradient-primary text-primary-foreground border-primary shadow-elegant scale-[1.02]" : "bg-card border-border"}`}>
-            <h3 className={`font-semibold ${p.featured ? "" : "text-navy"}`}>{p.title}</h3>
-            <div className="mt-3 text-3xl font-extrabold">{p.price}</div>
-            <p className={`mt-1 text-sm ${p.featured ? "text-white/85" : "text-muted-foreground"}`}>{p.desc}</p>
-            <ul className="mt-5 space-y-2 text-sm">
-              {p.items.map((i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <Check className={`w-4 h-4 mt-0.5 shrink-0 ${p.featured ? "text-white" : "text-primary"}`} /> {i}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      <p className="mt-6 text-xs text-muted-foreground">* Prețurile pot varia în funcție de complexitatea lucrării. Solicită o ofertă personalizată la telefon.</p>
-    </Section>
-  );
-}
-
 function ServiceAreas() {
   return (
     <div className="bg-secondary/60 border-y border-border">
@@ -367,7 +334,6 @@ function StickyCTAs() {
   const menuItems = [
     { href: "#servicii", label: "Servicii" },
     { href: "#de-ce-noi", label: "De ce noi" },
-    { href: "#preturi", label: "Prețuri" },
     { href: "#zone", label: "Zone" },
     { href: "#contact", label: "Contact" },
   ];
