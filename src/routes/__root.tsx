@@ -126,11 +126,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ro">
       <head>
         <HeadContent />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18581205440"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-18581205440');
+            `,
+          }}
+        />
       </head>
       <body>
         {children}
@@ -139,6 +154,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
+
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
