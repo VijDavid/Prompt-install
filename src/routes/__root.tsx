@@ -146,6 +146,28 @@ function RootShell({ children }: { children: React.ReactNode }) {
             `,
           }}
         />
+        
+<script
+  dangerouslySetInnerHTML={{
+    __html: `
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) !== 'undefined' && url) {
+            window.location = url;
+          }
+        };
+
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18581205440/6Vk3COjz5rodEMDjmpxF',
+          'event_callback': callback
+        });
+
+        return false;
+      }
+    `,
+  }}
+/>
+
       </head>
       <body>
         {children}
