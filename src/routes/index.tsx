@@ -449,7 +449,7 @@ function Contact() {
         </div>
 
        <form
- onSubmit={(e) => {
+onSubmit={(e) => {
   e.preventDefault();
 
   reportContactConversion(() => {
