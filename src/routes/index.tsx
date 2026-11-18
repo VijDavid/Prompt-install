@@ -34,14 +34,29 @@ const PHONE_DISPLAY = "+40 733 357 835";
 const ADDRESS = "Strada Enache Spirache 22, 052572 București";
 const WHATSAPP =
   "https://wa.me/40733357835?text=Bun%C4%83%2C%20am%20nevoie%20de%20un%20instalator%20%C3%AEn%20Bucure%C8%99ti.";
-function reportContactConversion() {
+function reportContactConversion(callback: () => void) {
   const gtag = (window as any).gtag;
 
-  if (typeof gtag === "function") {
-    gtag("event", "conversion", {
-      send_to: "AW-18581205440/6Vk3COjz5rodEMDjmpxF",
-    });
+  if (typeof gtag !== "function") {
+    callback();
+    return;
   }
+
+  let redirected = false;
+
+  const redirect = () => {
+    if (redirected) return;
+    redirected = true;
+    callback();
+  };
+
+  gtag("event", "conversion", {
+    send_to: "AW-18581205440/6Vk3COjz5rodEMDjmpxF",
+    event_callback: redirect,
+    event_timeout: 1500,
+  });
+
+  window.setTimeout(redirect, 1800);
 }
 const services = [
   {
@@ -434,12 +449,13 @@ function Contact() {
         </div>
 
        <form
-  className="p-6 sm:p-8 rounded-2xl border border-border bg-card shadow-card"
-  onSubmit={(e) => {
-    e.preventDefault();
-    reportContactConversion();
+ onSubmit={(e) => {
+  e.preventDefault();
+
+  reportContactConversion(() => {
     window.location.href = WHATSAPP;
-  }}
+  });
+}}
 >
           <h3 className="font-bold text-navy text-xl">Trimite-ne o cerere rapidă</h3>
           <p className="text-sm text-muted-foreground mt-1">
